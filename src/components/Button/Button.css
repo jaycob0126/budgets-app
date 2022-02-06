@@ -9,11 +9,29 @@ body {
   font-size: 18;
 }
 
+@property --spread {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
 .button {
+  --mouseX: 0px;
+  --mouseY: 0px;
   padding: 8px 25px;
   border-radius: 35px;
   cursor: pointer;
   font-size: medium;
+}
+
+.button:hover {
+  -webkit-box-shadow: 0px 0px 6px rgba(10, 10, 10, 0.3);
+          box-shadow: 0px 0px 6px rgba(10, 10, 10, 0.3);
+}
+
+.button:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
 }
 
 .primary {
@@ -25,6 +43,7 @@ body {
 .secondary {
   background: #595656;
   border: none;
+  color: #ffffff;
 }
 
 .primary-outline {
@@ -32,5 +51,67 @@ body {
   color: #f64343;
   outline: 2px #f64343 solid;
   border: none;
+}
+
+.button:active.primary {
+  --color: $primary;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+  background: #f52b2b;
+  -webkit-animation: radial-gradient-spread-primary 300ms ease-out forwards;
+          animation: radial-gradient-spread-primary 300ms ease-out forwards;
+}
+
+.button:active.secondary {
+  --color: $secondary;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+  background: #4c4949;
+  -webkit-animation: radial-gradient-spread-secondary 300ms ease-out forwards;
+          animation: radial-gradient-spread-secondary 300ms ease-out forwards;
+}
+
+@-webkit-keyframes radial-gradient-spread-primary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #f64343 var(--spread), #f41212);
+  }
+  100% {
+    --spread: 90%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #f64343 var(--spread), #f41212);
+  }
+}
+
+@keyframes radial-gradient-spread-primary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #f64343 var(--spread), #f41212);
+  }
+  100% {
+    --spread: 90%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #f64343 var(--spread), #f41212);
+  }
+}
+
+@-webkit-keyframes radial-gradient-spread-secondary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #595656 var(--spread), #3f3d3d);
+  }
+  100% {
+    --spread: 90%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #595656 var(--spread), #3f3d3d);
+  }
+}
+
+@keyframes radial-gradient-spread-secondary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #595656 var(--spread), #3f3d3d);
+  }
+  100% {
+    --spread: 90%;
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), #595656 var(--spread), #3f3d3d);
+  }
 }
 /*# sourceMappingURL=Button.css.map */

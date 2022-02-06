@@ -1,3 +1,4 @@
+import FilterSearch from "./components/FilterSearch/FilterSearch";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -5,8 +6,8 @@ function App() {
     <>
       <div className="App">
         <Header />
+        <FilterSearch />
       </div>
-      ;
     </>
   );
 }

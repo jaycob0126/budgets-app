@@ -1,10 +1,27 @@
 @import "../styles/global/index";
 
+@property --spread {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
 .button {
+  --mouseX: 0px;
+  --mouseY: 0px;
   padding: 8px 25px;
   border-radius: 35px;
   cursor: pointer;
   font-size: medium;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 6px rgba(10, 10, 10, 0.3);
+  // background: darken($primary, 5);
+}
+
+.button:active {
+  transform: scale(0.99);
 }
 
 .primary {
@@ -15,6 +32,7 @@
 .secondary {
   background: $secondary;
   border: none;
+  color: $white;
 }
 
 .primary-outline {
@@ -22,4 +40,57 @@
   color: $primary;
   outline: 2px $primary solid;
   border: none;
+}
+
+.button:active.primary {
+  --color: $primary;
+  transform: scale(0.99);
+  background: darken($primary, 5);
+  animation: radial-gradient-spread-primary 300ms ease-out forwards;
+}
+.button:active.secondary {
+  --color: $secondary;
+  transform: scale(0.99);
+  background: darken($secondary, 5);
+  animation: radial-gradient-spread-secondary 300ms ease-out forwards;
+}
+
+@keyframes radial-gradient-spread-primary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(
+      circle at var(--mouseX) var(--mouseY),
+      $primary var(--spread),
+      darken($primary, 10)
+    );
+  }
+
+  100% {
+    --spread: 90%;
+    background: radial-gradient(
+      circle at var(--mouseX) var(--mouseY),
+      $primary var(--spread),
+      darken($primary, 10)
+    );
+  }
+}
+
+@keyframes radial-gradient-spread-secondary {
+  0% {
+    --spread: 0%;
+    background: radial-gradient(
+      circle at var(--mouseX) var(--mouseY),
+      $secondary var(--spread),
+      darken($secondary, 10)
+    );
+  }
+
+  100% {
+    --spread: 90%;
+    background: radial-gradient(
+      circle at var(--mouseX) var(--mouseY),
+      $secondary var(--spread),
+      darken($secondary, 10)
+    );
+  }
 }
