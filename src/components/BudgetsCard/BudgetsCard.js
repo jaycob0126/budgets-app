@@ -4,12 +4,13 @@ import Flex from "../utils/Flex/Flex";
 import "./BudgetsCard.css";
 import { toPHP, toDate } from "../../utils/numberFormatter";
 import Button from "../Button/Button";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const budgets = [
   {
     id: 1,
     name: "School",
-    amount: 200,
+    amount: 1800,
     maxAmount: 2000,
   },
   {
@@ -24,7 +25,9 @@ const budgets = [
     amount: 2000,
     maxAmount: 3000,
   },
-  { id: 4, name: "Adventures", amount: 2000, maxAmount: 4000 },
+  { id: 4, name: "Adventures", amount: 800, maxAmount: 4000 },
+  { id: 5, name: "Shopping", amount: 2000, maxAmount: 2000 },
+  { id: 6, name: "Clothes", amount: 300, maxAmount: 1200 },
 ];
 
 function BudgetsCard() {
@@ -38,10 +41,10 @@ function BudgetsCard() {
             case budgetRatio < 0.3:
               progressColor = "blue";
               break;
-            case budgetRatio < 0.6:
+            case budgetRatio < 0.7:
               progressColor = "yellow";
               break;
-            case budgetRatio < 0.9:
+            case budgetRatio <= 1:
               progressColor = "red";
               break;
           }
@@ -59,12 +62,13 @@ function BudgetsCard() {
               </Card.Header>
               <Card.Content outline={true}>
                 <Flex direction="column" align="flex-start" gap="1em">
-                  <progress
-                    className="progress-budget"
+                  <ProgressBar
                     value={budget.amount}
-                    max={budget.maxAmount}
-                    // style={{ backgroundColor: progressColor }}
-                  ></progress>
+                    maxValue={budget.maxAmount}
+                    fgColor={progressColor}
+                    width="100%"
+                    height="12px"
+                  />
                   <Card.Item>
                     <h3>Last Expense</h3>
                     <h3>Milk</h3>

@@ -1,15 +1,21 @@
+import { useEffect, useRef } from "react";
 import Card from "../Card/Card";
 import "./Dashboard.css";
 
 function Dashboard({ hidden }) {
+  const dashboard = useRef();
+
+  useEffect(() => {
+    if (hidden) {
+      dashboard.current.classList.remove("hidden");
+    } else {
+      dashboard.current.classList.add("hidden");
+    }
+  }, [hidden]);
+
   return (
     <>
-      <div
-        className={`
-          ${hidden ? "" : "hidden"}
-        container-dashboard
-      `}
-      >
+      <div ref={dashboard} className="hidden container-dashboard">
         <Card>
           <Card.Title>Dashboard</Card.Title>
           <Card.Content></Card.Content>

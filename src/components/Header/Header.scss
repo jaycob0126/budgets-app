@@ -42,6 +42,9 @@
     align-items: center;
     justify-content: center;
     gap: 1em;
+
+    // transform: translateY(0px);
+    transition: 0.3s ease-in-out;
   }
 
   .header-section svg {
@@ -57,5 +60,28 @@
   }
   .header-section svg:active {
     stroke: lighten($gray, 20);
+  }
+
+  .button-intersect {
+    position: fixed;
+    width: 105vw;
+    height: 100px;
+    top: -100px;
+    left: 0px;
+
+    background: rgba(209, 209, 209, 0.8);
+    backdrop-filter: blur(8px);
+    transition: 0.5s ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 1em;
+    padding-bottom: 1.2em;
+  }
+
+  .ontop {
+    transform: translateX(50%);
+    transform: translateY(90px);
   }
 }

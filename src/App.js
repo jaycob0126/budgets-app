@@ -7,8 +7,10 @@ function App() {
   return (
     <>
       <div className="App">
-        <Header />
-        <FilterSearch />
+        <div>
+          <Header />
+          <FilterSearch />
+        </div>
         <Flex direction="column" align="center">
           <BudgetsCard />
         </Flex>

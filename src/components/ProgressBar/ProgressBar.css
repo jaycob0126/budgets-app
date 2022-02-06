@@ -1,0 +1,57 @@
+.progress-bar-container {
+  position: relative;
+  width: 400px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.progress-bar-back {
+  width: 100%;
+  height: 100%;
+  background: #e6e6e6;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar-front {
+  --value: 40%;
+  --width: 400px;
+  --fg-color: rgb(224, 76, 57);
+  --fg-secondary: rgb(255, 133, 133);
+  width: var(--value);
+  height: 100%;
+  background: var(--fg-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.progress-bar-front.loading {
+  background: repeating-linear-gradient(45deg, var(--fg-color) 11px, var(--fg-color) 21px, var(--fg-secondary) 21px, var(--fg-secondary) 31px);
+  -webkit-animation: loading 20s linear infinite;
+          animation: loading 20s linear infinite;
+  will-change: background-position;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--width) * 2);
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--width) * 2);
+  }
+}
+/*# sourceMappingURL=ProgressBar.css.map */
