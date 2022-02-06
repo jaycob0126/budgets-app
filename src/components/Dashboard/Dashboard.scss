@@ -1,0 +1,32 @@
+@import "../styles/global/variables";
+
+.container-dashboard {
+  max-height: 50vh;
+  overflow: hidden;
+  animation: height-expand 800ms ease-in-out forwards;
+}
+
+.hidden {
+  max-height: 0px;
+  animation: height-collapse 800ms ease-in-out forwards;
+}
+
+@keyframes height-expand {
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 50vh;
+  }
+}
+
+@keyframes height-collapse {
+  0% {
+    max-height: 50vh;
+  }
+
+  100% {
+    max-height: 0;
+  }
+}

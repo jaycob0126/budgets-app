@@ -1,0 +1,50 @@
+.card-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  border-radius: 8px;
+  padding: 1.2em 1.2em;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
+          box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
+}
+
+.card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card-title {
+  text-align: left;
+}
+
+.card-content {
+  padding: 1em 1em;
+}
+
+.card-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 8px;
+}
+
+.card-outline {
+  border: 2px #f7f7f7 solid;
+}
+/*# sourceMappingURL=Card.css.map */

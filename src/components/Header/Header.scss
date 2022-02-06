@@ -1,14 +1,21 @@
-@import "../styles/global/index";
+@import "../styles/global/variables";
 
 .header-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   min-height: 120px;
+  gap: 1em;
+  padding: 1em;
+  padding-bottom: 0.5em;
+  flex-shrink: 0;
+  z-index: 1;
 
   position: sticky;
-  min-width: 383px;
+  top: 0;
+  left: 0;
+  min-width: 370px;
   left: 0px;
   top: 0px;
 
@@ -37,11 +44,18 @@
     gap: 1em;
   }
 
-  .header-section:nth-child(3) {
+  .header-section svg {
     cursor: pointer;
+    width: 100%;
   }
 
-  .header-section:nth-child(3) svg {
+  .header-section svg {
     stroke: $gray;
+  }
+  .header-section svg:hover {
+    stroke: lighten($gray, 10);
+  }
+  .header-section svg:active {
+    stroke: lighten($gray, 20);
   }
 }

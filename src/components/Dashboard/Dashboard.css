@@ -1,0 +1,49 @@
+.container-dashboard {
+  max-height: 50vh;
+  overflow: hidden;
+  -webkit-animation: height-expand 800ms ease-in-out forwards;
+          animation: height-expand 800ms ease-in-out forwards;
+}
+
+.hidden {
+  max-height: 0px;
+  -webkit-animation: height-collapse 800ms ease-in-out forwards;
+          animation: height-collapse 800ms ease-in-out forwards;
+}
+
+@-webkit-keyframes height-expand {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 50vh;
+  }
+}
+
+@keyframes height-expand {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 50vh;
+  }
+}
+
+@-webkit-keyframes height-collapse {
+  0% {
+    max-height: 50vh;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+
+@keyframes height-collapse {
+  0% {
+    max-height: 50vh;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+/*# sourceMappingURL=Dashboard.css.map */

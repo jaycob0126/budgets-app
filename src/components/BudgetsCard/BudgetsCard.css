@@ -1,0 +1,25 @@
+.container-budgets-card {
+  width: 95%;
+  border: 1px black solid;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 420px))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(320px, 420px));
+  gap: 1em;
+  padding: 0.5em 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.progress-budget {
+  width: 90%;
+  height: 25px;
+}
+
+.budget-max-amount {
+  color: #888787;
+  margin-left: 0.2em;
+  font-size: 0.8em;
+}
+/*# sourceMappingURL=BudgetsCard.css.map */

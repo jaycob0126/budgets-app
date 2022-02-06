@@ -1,4 +1,4 @@
-@import "../styles/global/index";
+@import "../styles/global/variables";
 
 @property --spread {
   syntax: "<percentage>";
@@ -42,12 +42,20 @@
   border: none;
 }
 
+.secondary-outline {
+  background: none;
+  color: $secondary;
+  outline: 2px $secondary solid;
+  border: none;
+}
+
 .button:active.primary {
   --color: $primary;
   transform: scale(0.99);
   background: darken($primary, 5);
   animation: radial-gradient-spread-primary 300ms ease-out forwards;
 }
+
 .button:active.secondary {
   --color: $secondary;
   transform: scale(0.99);

@@ -5,7 +5,11 @@ import "./FilterSearch.css";
 
 const searchStyle = {
   control: (style) => {
-    return { ...style, width: "221px", height: "25px" };
+    return {
+      ...style,
+      minWidth: "210px",
+      height: "25px",
+    };
   },
 };
 
@@ -35,7 +39,7 @@ function FilterSearch() {
       <Container margin="1px" padding="15px">
         <Flex gap="14px" justify="space-between">
           <Select styles={searchStyle} options={searchOption}></Select>
-          <Select options={filterOption}></Select>
+          <Select styles={filterStyle} options={filterOption}></Select>
         </Flex>
       </Container>
     </>
