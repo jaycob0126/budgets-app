@@ -38,15 +38,13 @@
 .primary-outline {
   background: none;
   color: #f64343;
-  outline: 2px #f64343 solid;
-  border: none;
+  border: 2px #f64343 solid;
 }
 
 .secondary-outline {
   background: none;
   color: #595656;
-  outline: 2px #595656 solid;
-  border: none;
+  border: 2px #595656 solid;
 }
 
 .button:active.primary {
