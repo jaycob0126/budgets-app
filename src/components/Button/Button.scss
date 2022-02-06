@@ -1,0 +1,24 @@
+@import "../../styles/global/index";
+
+.button {
+  padding: 8px 25px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.primary {
+  background: $primary;
+  border: none;
+}
+.secondary {
+  background: $secondary;
+  border: none;
+}
+
+.primary-outline {
+  background: none;
+  color: $primary;
+  outline: 2px $primary solid;
+  border: none;
+}

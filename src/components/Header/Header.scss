@@ -1,0 +1,47 @@
+@import "../../styles/global/index";
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+
+  position: sticky;
+  min-width: 383px;
+  left: 0px;
+  top: 0px;
+
+  background: $light-gray;
+
+  .site-logo {
+    color: $primary;
+    font-size: $header-font-size;
+    span {
+      color: $dark;
+    }
+  }
+
+  .header-section:nth-child(1) {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .header-section:nth-child(2) {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .header-section:nth-child(3) {
+    cursor: pointer;
+  }
+
+  .header-section:nth-child(3) svg {
+    stroke: $gray;
+  }
+}
