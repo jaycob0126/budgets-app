@@ -1,4 +1,4 @@
-@import "../../styles/global/index";
+@import "../styles/global/index";
 
 .button {
   padding: 8px 25px;
@@ -10,6 +10,7 @@
 .primary {
   background: $primary;
   border: none;
+  color: $white;
 }
 .secondary {
   background: $secondary;

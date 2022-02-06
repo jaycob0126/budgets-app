@@ -19,6 +19,7 @@ body {
 .primary {
   background: #f64343;
   border: none;
+  color: #ffffff;
 }
 
 .secondary {
