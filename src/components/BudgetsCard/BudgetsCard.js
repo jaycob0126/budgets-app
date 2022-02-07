@@ -5,12 +5,10 @@ import { toPHP, toDate } from "../../utils/numberFormatter";
 import Button from "../Button/Button";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useAppContext } from "../../context/AppContextProvider";
-import { useRef, useState } from "react";
-import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 import { appStateCmd } from "../../reducers/appStateReducer";
 
 function BudgetsCard() {
-  const { budgets, budgetsDispatch } = useAppContext();
+  const { budgets } = useAppContext();
 
   return (
     <>
@@ -24,8 +22,7 @@ function BudgetsCard() {
 }
 
 const BudgetsCardContent = function ({ budget }) {
-  const [confirmDelete, setConfirmDelete] = useState(false);
-  const [answer, setAnswer] = useState(false);
+  const { appStateDispatch } = useAppContext();
 
   const budgetRatio = budget.amount / budget.maxAmount;
   var progressColor;
@@ -42,18 +39,21 @@ const BudgetsCardContent = function ({ budget }) {
   }
 
   function handleConfirmDelete() {
-    setConfirmDelete((prev) => !prev);
+    appStateDispatch({
+      type: appStateCmd.toggleConfirmDelete,
+      payload: budget,
+    });
+  }
+
+  function handleAddLocalExpense() {
+    appStateDispatch({
+      type: appStateCmd.toggleLocalAddExpense,
+      payload: budget,
+    });
   }
 
   return (
     <>
-      <ConfirmDeleteModal
-        name={budget.name}
-        visibility={confirmDelete}
-        setAnswer={setAnswer}
-        answer={answer}
-        setConfirmDelete={setConfirmDelete}
-      />
       <Card shadow={true} roundedCorner={true}>
         <Card.Header>
           <Card.Title>{budget.name}</Card.Title>
@@ -80,7 +80,9 @@ const BudgetsCardContent = function ({ budget }) {
           </Flex>
         </Card.Content>
         <Card.Footer>
-          <Button variant="primary">Add Expense</Button>
+          <Button variant="primary" onClick={handleAddLocalExpense}>
+            Add Expense
+          </Button>
           <Button variant="primary-outline" onClick={handleConfirmDelete}>
             Delete
           </Button>

@@ -33,7 +33,9 @@ export const budgetsReducer = (state, action) => {
       };
       return [...state, newBudget];
     case budgetsCmd.delete:
-      return;
+      //payload: budgetID
+      const newBudgets = state.filter((budget) => budget.id !== payload);
+      return newBudgets;
     case budgetsCmd.edit:
       return;
 
