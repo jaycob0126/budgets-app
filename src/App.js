@@ -1,8 +1,8 @@
-import { useState } from "react";
+import AddBudgetModal from "./components/AddBudgetModal/AddBudgetModal";
+import AddExpenseModal from "./components/AddExpenseModal/AddExpenseModal";
 import BudgetsCard from "./components/BudgetsCard/BudgetsCard";
 import FilterSearch from "./components/FilterSearch/FilterSearch";
 import Header from "./components/Header/Header";
-import Modal from "./components/Modal/Modal";
 import Flex from "./components/utils/Flex/Flex";
 
 function App() {
@@ -13,9 +13,8 @@ function App() {
           <Header />
           <FilterSearch />
         </div>
-        <Modal hasOverlay={true} visibility="hidden" from="top" position="top">
-          Add Budget
-        </Modal>
+        <AddBudgetModal />
+        <AddExpenseModal />
         <Flex direction="column" align="center">
           <BudgetsCard />
         </Flex>

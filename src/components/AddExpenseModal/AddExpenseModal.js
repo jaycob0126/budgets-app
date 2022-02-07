@@ -1,30 +1,31 @@
 import Modal from "../Modal/Modal";
 import { useAppContext } from "../../context/AppContextProvider";
 
-import "./AddBudgetModal.css";
+import "./AddExpenseModal.css";
 import Card from "../Card/Card";
 import { appStateCmd } from "../../reducers/appStateReducer";
 import Form from "../Form/Form";
 import Button from "../Button/Button";
+import Flex from "../utils/Flex/Flex";
 
-function AddBudgetModal() {
+function AddExpenseModal() {
   const { appState, appStateDispatch } = useAppContext();
 
-  function toggleBudgetAdd() {
-    appStateDispatch({ type: appStateCmd.toggleAddBudget });
+  function toggleAddExpense() {
+    appStateDispatch({ type: appStateCmd.toggleAddExpense });
   }
 
   return (
     <Modal
       hasOverlay={true}
-      visibility={appState.addBudgetActive ? "show" : "hidden"}
-      overlayClick={toggleBudgetAdd}
+      visibility={appState.addExpenseActive ? "show" : "hidden"}
+      overlayClick={toggleAddExpense}
       from="top"
       position="center"
     >
       <Card width="300px" style={{ margin: "auto" }} roundedCorner={true}>
         <Card.Header style={{ justifyContent: "center" }}>
-          <Card.Title>Add Budgets</Card.Title>
+          <Card.Title>Add Expense</Card.Title>
         </Card.Header>
         <Card.HorizontalRule />
         <Card.Content>
@@ -37,6 +38,16 @@ function AddBudgetModal() {
               <Form.Label>Amount</Form.Label>
               <Form.InputText />
             </Form.InputGroup>
+            <Flex direction="row" gap="8px" justify="space-between">
+              <Form.InputGroup>
+                <Form.Label fontSize=".8em">Budget</Form.Label>
+                <Form.InputText width="110px" fontSize=".8em" />
+              </Form.InputGroup>
+              <Form.InputGroup>
+                <Form.Label fontSize=".8em">Category</Form.Label>
+                <Form.InputText width="110px" fontSize=".8em" />
+              </Form.InputGroup>
+            </Flex>
           </Form>
         </Card.Content>
         <Card.Footer style={{ justifyContent: "center", alignItems: "center" }}>
@@ -44,7 +55,7 @@ function AddBudgetModal() {
           <Button
             padding=".4em 2em"
             variant="secondary-outline"
-            onClick={toggleBudgetAdd}
+            onClick={toggleAddExpense}
           >
             Exit
           </Button>
@@ -54,4 +65,4 @@ function AddBudgetModal() {
   );
 }
 
-export default AddBudgetModal;
+export default AddExpenseModal;

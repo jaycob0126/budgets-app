@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useAppContext } from "../../context/AppContextProvider";
+import { appStateCmd } from "../../reducers/appStateReducer";
+import { budgetsCmd } from "../../reducers/budgetsReducer";
 import Button from "../Button/Button";
 import Dashboard from "../Dashboard/Dashboard";
 import "./Header.css";
 
 function Header() {
+  const { appState, appStateDispatch } = useAppContext();
+
   const [showDashboard, setShowDashboard] = useState(false);
   const logoRef = useRef();
   const buttonsRef = useRef();
@@ -32,6 +37,14 @@ function Header() {
     observer.observe(logoRef.current);
   }, [buttonsRef, logoRef]);
 
+  function handleBudgetAdd() {
+    appStateDispatch({ type: appStateCmd.toggleAddBudget });
+  }
+
+  function handleExpenseAdd() {
+    appStateDispatch({ type: appStateCmd.toggleAddExpense });
+  }
+
   return (
     <>
       <header className="header-container">
@@ -43,13 +56,21 @@ function Header() {
           </a>
         </section>
         <section className="header-section" ref={buttonsRef}>
-          <Button variant="primary">Add Budget</Button>
-          <Button variant="primary-outline">Add Expense</Button>
+          <Button variant="primary" onClick={handleBudgetAdd}>
+            Add Budget
+          </Button>
+          <Button variant="primary-outline" onClick={handleExpenseAdd}>
+            Add Expense
+          </Button>
         </section>
         <Dashboard hidden={showDashboard} />
         <div className="button-intersect" ref={buttonHiddenRef}>
-          <Button variant="primary">Add Budget</Button>
-          <Button variant="primary-outline">Add Expense</Button>
+          <Button variant="primary" onClick={handleBudgetAdd}>
+            Add Budget
+          </Button>
+          <Button variant="primary-outline" onClick={handleExpenseAdd}>
+            Add Expense
+          </Button>
         </div>
 
         <section className="header-section" onClick={handleDashboardDropDown}>

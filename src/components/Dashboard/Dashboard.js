@@ -16,7 +16,7 @@ function Dashboard({ hidden }) {
   return (
     <>
       <div ref={dashboard} className="hidden container-dashboard">
-        <Card>
+        <Card bgColor="#f7f7f7">
           <Card.Title>Dashboard</Card.Title>
           <Card.Content></Card.Content>
           <Card.Footer></Card.Footer>

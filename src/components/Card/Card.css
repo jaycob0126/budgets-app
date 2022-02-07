@@ -7,14 +7,20 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1em;
-  border-radius: 8px;
+  gap: 0.5em;
   padding: 1.2em 1.2em;
+  padding-bottom: 1.8em;
+  background: white;
 }
 
 .shadow {
   -webkit-box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
           box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
+}
+
+.card-rounded-corners {
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .card-header {
@@ -31,7 +37,7 @@
 }
 
 .card-content {
-  padding: 1em 1em;
+  padding: 0.8em 0.8em;
 }
 
 .card-footer {

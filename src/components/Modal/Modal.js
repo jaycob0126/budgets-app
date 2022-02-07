@@ -2,7 +2,14 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import "./Modal.css";
 
-function Modal({ children, hasOverlay, position, from, visibility }) {
+function Modal({
+  children,
+  hasOverlay,
+  position,
+  from,
+  visibility,
+  overlayClick,
+}) {
   const modal = useRef();
   const modalContainer = useRef();
   useEffect(() => {
@@ -48,7 +55,6 @@ function Modal({ children, hasOverlay, position, from, visibility }) {
     modal.current.classList = ["modal"];
     modal.current.classList.add(fromPosition);
     modal.current.classList.add(toPosition);
-    modal.current.classList.add(visibile);
     modalContainer.current.classList = ["modal-container"];
     modalContainer.current.classList.add(visibile);
   }, [position, from, visibility]);
@@ -56,7 +62,10 @@ function Modal({ children, hasOverlay, position, from, visibility }) {
   return (
     <>
       <div ref={modalContainer}>
-        <div className={`${hasOverlay ? "modal-overlay" : ""}`}></div>
+        <div
+          className={`${hasOverlay ? "modal-overlay" : ""}`}
+          onClick={overlayClick}
+        ></div>
         <div ref={modal}>{children}</div>
       </div>
     </>

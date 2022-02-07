@@ -2,46 +2,49 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 999;
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .modal-overlay {
   -ms-touch-action: none;
       touch-action: none;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(10, 10, 10, 0.9);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .modal {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   display: block;
-  background: white;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .modal-center {
   position: absolute;
-  top: 50vh;
-  left: 40vw;
+  top: 30vh;
+  left: 50vw;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
 }
 
 .modal-top {
   position: absolute;
-  top: 5vh;
-  left: 40vw;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  left: 50vw;
+  -webkit-transform: translateX(-50%) translateY(0%);
+          transform: translateX(-50%) translateY(0%);
 }
 
 .modal-bottom {
@@ -56,8 +59,8 @@
   position: absolute;
   bottom: 50vh;
   left: 10vw;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
 }
 
 .modal-right {
@@ -69,8 +72,8 @@
 }
 
 .modal-from-top {
-  -webkit-transform: translateY(-100vh);
-          transform: translateY(-100vh);
+  -webkit-transform: translateX(-50%) translateY(-50vh);
+          transform: translateX(-50%) translateY(-50vh);
 }
 
 .modal-from-bottom {
@@ -89,7 +92,7 @@
 }
 
 .modal-container.modal-hidden {
-  z-index: -1;
+  z-index: -5;
 }
 
 .modal-container.modal-hidden .modal-overlay {
@@ -103,8 +106,6 @@
 .modal-container.modal-show .modal-overlay {
   -ms-touch-action: none;
       touch-action: none;
-  width: 100%;
-  height: 100%;
   background: rgba(10, 10, 10, 0.9);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
@@ -113,7 +114,7 @@
 .modal-container.modal-show .modal {
   display: block;
   opacity: 1;
-  -webkit-transform: translateY(0vh);
-          transform: translateY(0vh);
+  -webkit-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
 }
 /*# sourceMappingURL=Modal.css.map */

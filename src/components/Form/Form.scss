@@ -1,0 +1,27 @@
+@import "../styles/global/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-text {
+}
+
+.form-label {
+  font-size: 0.9em;
+}
+
+.form-input-text {
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
+  border: 1px $dark solid;
+  color: $dark;
+}
