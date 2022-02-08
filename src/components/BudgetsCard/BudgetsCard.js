@@ -10,10 +10,16 @@ import { appStateCmd } from "../../reducers/appStateReducer";
 function BudgetsCard() {
   const { budgets } = useAppContext();
 
+  function sortingFunction(a, b) {
+    if (a.name > b.name) return 1;
+    if (a.name < b.name) return -1;
+    return 0;
+  }
+
   return (
     <>
       <div className="container-budgets-card">
-        {budgets.map((budget) => {
+        {budgets.sort(sortingFunction).map((budget) => {
           return <BudgetsCardContent budget={budget} key={budget.id} />;
         })}
       </div>
@@ -59,7 +65,7 @@ const BudgetsCardContent = function ({ budget }) {
           <Card.Title>{budget.name}</Card.Title>
           <Card.Item>
             {toPHP(budget.amount)} /
-            <span className="budget-max-amount">{toPHP(budget.maxAmount)}</span>
+            <span className="budget-max-amount">{toPHP(budget.amount)}</span>
           </Card.Item>
         </Card.Header>
         <Card.Content outline={true}>

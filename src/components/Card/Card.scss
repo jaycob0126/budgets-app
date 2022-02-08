@@ -33,7 +33,11 @@
 }
 
 .card-content {
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
   padding: 0.8em 0.8em;
+  gap: 1em;
 }
 
 .card-footer {

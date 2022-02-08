@@ -41,11 +41,11 @@ function AddExpenseModal() {
             <Flex direction="row" gap="8px" justify="space-between">
               <Form.InputGroup>
                 <Form.Label fontSize=".8em">Budget</Form.Label>
-                <Form.InputText width="110px" fontSize=".8em" />
+                <Form.InputText width="80px" fontSize=".8em" />
               </Form.InputGroup>
               <Form.InputGroup>
                 <Form.Label fontSize=".8em">Category</Form.Label>
-                <Form.InputText width="110px" fontSize=".8em" />
+                <Form.InputText width="80px" fontSize=".8em" />
               </Form.InputGroup>
             </Flex>
           </Form>

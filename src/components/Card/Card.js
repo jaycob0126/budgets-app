@@ -16,10 +16,18 @@ function Card({ children, shadow, width, bgColor, gap, roundedCorner, style }) {
   );
 }
 
-Card.Header = function ({ children, style }) {
+Card.Header = function ({ children, direction, justify, align, style }) {
   return (
     <>
-      <div className="card-header" style={{ ...style }}>
+      <div
+        className="card-header"
+        style={{
+          ...style,
+          flexDirection: direction,
+          justifyContent: justify,
+          alignItems: align,
+        }}
+      >
         {children}
       </div>
     </>
