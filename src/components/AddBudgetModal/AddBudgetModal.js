@@ -9,70 +9,6 @@ import Button from "../Button/Button";
 import { budgetsCmd } from "../../reducers/budgetsReducer";
 import { useEffect } from "react";
 
-//Input fields state
-const budgetFormState = {
-  name: "",
-  amount: "",
-  nameError: false,
-  amountError: false,
-  create: false,
-};
-//needs to have an input field checking
-
-function addBudgetFormReducer(state, action) {
-  const payload = action.payload;
-
-  switch (action.type) {
-    case "input":
-      //payload = {key: string, input: string}
-      return {
-        ...state,
-        [payload.key]: payload.input,
-        [`${payload.key}Error`]: false,
-      };
-    case "create":
-      if (!state.name.trim() || !state.amount.trim()) {
-        return {
-          ...state,
-          nameError: state.name.toLowerCase() ? false : true,
-          amountError: state.amount ? false : true,
-        };
-      } else {
-        return {
-          ...state,
-          create: true,
-        };
-      }
-
-    case "cancel":
-      return {
-        ...state,
-        nameError: false,
-        amountError: false,
-        create: false,
-        error: false,
-      };
-
-    case "clearInput":
-      return {
-        ...state,
-        [payload]: "",
-      };
-
-    case "clearAllInput":
-      return {
-        name: "",
-        amount: "",
-        nameError: false,
-        amountError: false,
-        create: false,
-        error: false,
-      };
-    default:
-      return state;
-  }
-}
-
 function AddBudgetModal() {
   const { appState, appStateDispatch, budgetsDispatch } = useAppContext();
   const [form, formDispatch] = useReducer(
@@ -122,11 +58,6 @@ function AddBudgetModal() {
 
   function handleClearInput(name) {
     formDispatch({ type: "clearInput", payload: name });
-  }
-
-  function setFocus(e) {
-    console.log("focus");
-    e.target.focus();
   }
 
   return (
@@ -209,6 +140,70 @@ function AddBudgetModal() {
       </Card>
     </Modal>
   );
+}
+
+//Input fields state
+const budgetFormState = {
+  name: "",
+  amount: "",
+  nameError: false,
+  amountError: false,
+  create: false,
+};
+//needs to have an input field checking
+
+function addBudgetFormReducer(state, action) {
+  const payload = action.payload;
+
+  switch (action.type) {
+    case "input":
+      //payload = {key: string, input: string}
+      return {
+        ...state,
+        [payload.key]: payload.input,
+        [`${payload.key}Error`]: false,
+      };
+    case "create":
+      if (!state.name.trim() || !state.amount.trim()) {
+        return {
+          ...state,
+          nameError: state.name.toLowerCase() ? false : true,
+          amountError: state.amount ? false : true,
+        };
+      } else {
+        return {
+          ...state,
+          create: true,
+        };
+      }
+
+    case "cancel":
+      return {
+        ...state,
+        nameError: false,
+        amountError: false,
+        create: false,
+        error: false,
+      };
+
+    case "clearInput":
+      return {
+        ...state,
+        [payload]: "",
+      };
+
+    case "clearAllInput":
+      return {
+        name: "",
+        amount: "",
+        nameError: false,
+        amountError: false,
+        create: false,
+        error: false,
+      };
+    default:
+      return state;
+  }
 }
 
 export default AddBudgetModal;
