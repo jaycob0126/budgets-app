@@ -5,6 +5,7 @@ export const appStateCmd = {
   toggleConfirmDelete: "appState/confirmDelete",
   toggleDeleteBudget: "appState/deleteBudget",
   cancelDeleteBudget: "appState/cancelDeleteBudget",
+  updateActive: "appState/updateActive",
 };
 
 export default function appStateReducer(state, action) {
@@ -13,8 +14,10 @@ export default function appStateReducer(state, action) {
   switch (type) {
     case appStateCmd.toggleAddBudget:
       return { ...state, addBudgetActive: !state.addBudgetActive };
+
     case appStateCmd.toggleAddExpense:
       return { ...state, addExpenseActive: !state.addExpenseActive };
+
     case appStateCmd.toggleLocalAddExpense:
       //payload: object
       return {
@@ -22,6 +25,7 @@ export default function appStateReducer(state, action) {
         addExpenseActive: !state.addExpenseActive,
         activeBudget: payload,
       };
+
     case appStateCmd.toggleConfirmDelete:
       //payload: object
       return {
@@ -54,6 +58,12 @@ export default function appStateReducer(state, action) {
           deleteBudgetActive: !state.deleteBudgetActive,
         };
       }
+
+    case appStateCmd.updateActive:
+      //payload = {key: string, active: Object}
+      var active = payload.active;
+      if (!payload) active = { name: "", amount: "" };
+      return { ...state, [`active${payload.key}`]: active };
 
     default:
       console.error("no appstate route");

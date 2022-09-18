@@ -1,5 +1,8 @@
-import { createContext, useContext, useReducer } from "react";
-import appStateReducer, { appStates } from "../reducers/appStateReducer";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import appStateReducer, {
+  appStates,
+  appStateCmd,
+} from "../reducers/appStateReducer";
 import { budgetsReducer, initialBudgets } from "../reducers/budgetsReducer";
 
 const AppContext = createContext();
@@ -11,6 +14,14 @@ export function useAppContext() {
 export default function AppContextProvider({ children }) {
   const [budgets, budgetsDispatch] = useReducer(budgetsReducer, initialBudgets);
   const [appState, appStateDispatch] = useReducer(appStateReducer, appStates);
+
+  useEffect(() => {
+    const activeBudget = budgets[budgets.length - 1];
+    appStateDispatch({
+      type: appStateCmd.updateActive,
+      payload: { key: "Budget", active: activeBudget },
+    });
+  }, [budgets]);
   return (
     <>
       <AppContext.Provider

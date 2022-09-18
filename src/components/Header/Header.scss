@@ -50,6 +50,8 @@
   .header-section svg {
     cursor: pointer;
     width: 100%;
+    transform: translateY(1);
+    transition: 0.6 ease-in-out;
   }
 
   .header-section svg {
@@ -84,4 +86,8 @@
     transform: translateX(50%);
     transform: translateY(90px);
   }
+}
+
+.mirror {
+  transform: translateXY(1);
 }

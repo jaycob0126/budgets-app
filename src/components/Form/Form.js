@@ -58,6 +58,7 @@ Form.InputText = function ({
   onChange,
   name,
   onClear,
+  placeholder,
 }) {
   return (
     <>
@@ -70,6 +71,7 @@ Form.InputText = function ({
           value={value}
           onChange={onChange}
           autoComplete="off"
+          placeholder={placeholder}
         />
         <span className="form-input-vertical-rule"></span>
         <svg
@@ -98,6 +100,7 @@ Form.InputNumber = function ({
   style,
   min,
   max,
+  step,
   value,
   name,
   onChange,
@@ -113,6 +116,7 @@ Form.InputNumber = function ({
         name={name}
         min={min}
         max={max}
+        step={step}
         value={value}
         onChange={onChange}
         autoFocus={autoFocus}

@@ -13,8 +13,10 @@ function Header() {
   const logoRef = useRef();
   const buttonsRef = useRef();
   const buttonHiddenRef = useRef();
+  const dropDownIcon = useRef();
 
-  function handleDashboardDropDown() {
+  function handleDashboardDropDown(e) {
+    dropDownIcon.current.classList.toggle("mirror");
     setShowDashboard((showDashboard) => !showDashboard);
   }
 
@@ -76,9 +78,10 @@ function Header() {
         <section className="header-section" onClick={handleDashboardDropDown}>
           <div className="icon-dropdown">
             <svg
+              ref={dropDownIcon}
+              viewBox="0 0 32 8"
               width="32"
               height="8"
-              viewBox="0 0 32 8"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
